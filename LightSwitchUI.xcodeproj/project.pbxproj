@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		371BD7721C1FC7F800A53C7D /* LSSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371BD7711C1FC7F800A53C7D /* LSSettingsTableViewController.m */; };
+		371BD7751C1FD1EB00A53C7D /* LSSwitchesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371BD7741C1FD1EB00A53C7D /* LSSwitchesTableViewController.m */; };
+		371BD7781C2121E300A53C7D /* LSSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 371BD7771C2121E300A53C7D /* LSSwitchTableViewCell.m */; };
 		374109EA1C1CBA990042F2C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 374109E91C1CBA990042F2C4 /* main.m */; };
 		374109ED1C1CBA990042F2C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 374109EC1C1CBA990042F2C4 /* AppDelegate.m */; };
 		374109F01C1CBA990042F2C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 374109EF1C1CBA990042F2C4 /* ViewController.m */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		371BD7701C1FC7F800A53C7D /* LSSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSettingsTableViewController.h; sourceTree = "<group>"; };
 		371BD7711C1FC7F800A53C7D /* LSSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSettingsTableViewController.m; sourceTree = "<group>"; };
+		371BD7731C1FD1EB00A53C7D /* LSSwitchesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSwitchesTableViewController.h; sourceTree = "<group>"; };
+		371BD7741C1FD1EB00A53C7D /* LSSwitchesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchesTableViewController.m; sourceTree = "<group>"; };
+		371BD7761C2121E300A53C7D /* LSSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSwitchTableViewCell.h; sourceTree = "<group>"; };
+		371BD7771C2121E300A53C7D /* LSSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchTableViewCell.m; sourceTree = "<group>"; };
 		374109E51C1CBA990042F2C4 /* LightSwitchUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwitchUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		374109E91C1CBA990042F2C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		374109EB1C1CBA990042F2C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +124,10 @@
 				374109E81C1CBA990042F2C4 /* Supporting Files */,
 				371BD7701C1FC7F800A53C7D /* LSSettingsTableViewController.h */,
 				371BD7711C1FC7F800A53C7D /* LSSettingsTableViewController.m */,
+				371BD7731C1FD1EB00A53C7D /* LSSwitchesTableViewController.h */,
+				371BD7741C1FD1EB00A53C7D /* LSSwitchesTableViewController.m */,
+				371BD7761C2121E300A53C7D /* LSSwitchTableViewCell.h */,
+				371BD7771C2121E300A53C7D /* LSSwitchTableViewCell.m */,
 			);
 			path = LightSwitchUI;
 			sourceTree = "<group>";
@@ -281,7 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				371BD7751C1FD1EB00A53C7D /* LSSwitchesTableViewController.m in Sources */,
 				371BD7721C1FC7F800A53C7D /* LSSettingsTableViewController.m in Sources */,
+				371BD7781C2121E300A53C7D /* LSSwitchTableViewCell.m in Sources */,
 				374109F01C1CBA990042F2C4 /* ViewController.m in Sources */,
 				374109ED1C1CBA990042F2C4 /* AppDelegate.m in Sources */,
 				374109F61C1CBA990042F2C4 /* LightSwitchUI.xcdatamodeld in Sources */,

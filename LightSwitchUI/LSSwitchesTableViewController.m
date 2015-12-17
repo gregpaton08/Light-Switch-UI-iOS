@@ -60,7 +60,7 @@
 
 - (void)cellSwitchChanged:(id)sender {
     UISwitch* switchControl = sender;
-    NSLog( @"The switch %zd is %@", [switchControl tag], switchControl.on ? @"ON" : @"OFF" );
+    NSLog(@"Switch %zd is %@", [switchControl tag], switchControl.on ? @"ON" : @"OFF");
 }
 
 /*

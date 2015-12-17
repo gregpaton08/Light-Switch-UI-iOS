@@ -107,4 +107,19 @@
 }
 */
 
+- (IBAction)buttonPressEdit:(id)sender {
+    UIBarButtonItem *button = (UIBarButtonItem*)sender;
+    if (0 == [[self tableView] numberOfRowsInSection:0]) {
+        return;
+    }
+    
+    [[self tableView] setEditing:![[self tableView] isEditing] animated:YES];
+    if ([[self tableView] isEditing]) {
+        [button setTitle:@"Done"];
+    }
+    else {
+        [button setTitle:@"Edit"];
+    }
+}
+
 @end

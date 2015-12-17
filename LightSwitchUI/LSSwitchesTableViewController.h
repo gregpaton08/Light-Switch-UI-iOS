@@ -10,4 +10,6 @@
 
 @interface LSSwitchesTableViewController : UITableViewController
 
+- (IBAction)buttonPressEdit:(id)sender;
+
 @end

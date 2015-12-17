@@ -39,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -47,9 +47,20 @@
     
     // Configure the cell...
     
+    if (nil == cell) {
+        cell = [[LSSwitchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LSSwitchTableViewCellIdentifier"];
+    }
+    
     [[cell textLabel] setText:@"TESTING"];
+    [cell setTag:[indexPath row]];
+    [[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     
     return cell;
+}
+
+- (void)cellSwitchChanged:(id)sender {
+    UISwitch* switchControl = sender;
+    NSLog( @"The switch %zd is %@", [switchControl tag], switchControl.on ? @"ON" : @"OFF" );
 }
 
 /*

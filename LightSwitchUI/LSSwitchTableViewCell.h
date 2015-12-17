@@ -10,4 +10,6 @@
 
 @interface LSSwitchTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UISwitch *cellSwitch;
+
 @end

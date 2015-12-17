@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    [self setCellSwitch:[[UISwitch alloc] init]];
+    [self setAccessoryView:[self cellSwitch]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,10 +27,22 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        [[self textLabel] setText:@"TESTING"];
+//        [[self textLabel] setText:@"TESTING"];
+//        
+//        [self setCellSwitch:[[UISwitch alloc] init]];
+//        
+//        [self setAccessoryView:[self cellSwitch]];
     }
     
     return self;
+}
+
+- (void)setTag:(NSInteger)tag {
+    [super setTag:tag];
+    
+    if ([self cellSwitch]) {
+        [[self cellSwitch] setTag:tag];
+    }
 }
 
 @end

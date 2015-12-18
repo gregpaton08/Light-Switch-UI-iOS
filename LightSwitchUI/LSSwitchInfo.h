@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LSSwitchInfo : NSObject
+@interface LSSwitchInfo : NSObject <NSCoding>
 
 @property NSString *roomLabel;
 @property NSString *deviceLabel;

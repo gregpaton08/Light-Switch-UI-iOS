@@ -56,16 +56,23 @@
     }
     
     NSMutableArray *switches = [[self switchModel] displayedSwitches];
-    [[cell textLabel] setText:[switches objectAtIndex:[indexPath row]]];
+    LSSwitchInfo *switchInfo = [switches objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[switchInfo roomLabel]];
     [cell setTag:[indexPath row]];
     [[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    [[cell cellSwitch] setOn:[switchInfo status]];
     
     return cell;
 }
 
 - (void)cellSwitchChanged:(id)sender {
     UISwitch* switchControl = sender;
-    NSLog(@"Switch %zd is %@", [switchControl tag], switchControl.on ? @"ON" : @"OFF");
+    NSLog(@"Switch %zd is %@", [switchControl tag], [switchControl isOn] ? @"ON" : @"OFF");
+    
+    
+    NSMutableArray *switches = [[self switchModel] displayedSwitches];
+    LSSwitchInfo *switchInfo = [switches objectAtIndex:[switchControl tag]];
+    [switchInfo setStatus:[switchControl isOn]];
 }
 
 // Override to support conditional editing of the table view.
@@ -127,7 +134,9 @@
 
 - (IBAction)buttonPressAdd:(id)sender {
     NSMutableArray *switches = [[self switchModel] displayedSwitches];
-    [switches addObject:[NSString stringWithFormat:@"Testing %zu", [switches count]]];
+    LSSwitchInfo *switchInfo = [[LSSwitchInfo alloc] init];
+    [switchInfo setRoomLabel:[NSString stringWithFormat:@"Testing %zu", [switches count]]];
+    [switches addObject:switchInfo];
     [[self tableView] reloadData];
 }
 

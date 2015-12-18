@@ -15,14 +15,7 @@
     self = [super init];
     if (self) {
         [self setKeyForUserDefaults:@"LSSwitchesDisplaySwitches"];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSArray *switches = [defaults objectForKey:[self keyForUserDefaults]];
-        if (switches) {
-            [self setDisplayedSwitches:[NSMutableArray arrayWithArray:switches]];
-        }
-        else {
-            [self setDisplayedSwitches:[[NSMutableArray alloc] init]];
-        }
+        [self loadDisplayedSwitches];
     }
     return self;
 }
@@ -31,9 +24,22 @@
     // Load all the switches from the network
 }
 
+- (void)loadDisplayedSwitches {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [defaults objectForKey:[self keyForUserDefaults]];
+    if (data) {
+        NSArray *switches = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [self setDisplayedSwitches:[NSMutableArray arrayWithArray:switches]];
+    }
+    else {
+        [self setDisplayedSwitches:[[NSMutableArray alloc] init]];
+    }
+}
+
 - (void)saveDisplayedSwitches {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[self displayedSwitches] forKey:[self keyForUserDefaults]];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:[self displayedSwitches]];
+    [defaults setObject:data forKey:[self keyForUserDefaults]];
     [defaults synchronize];
 }
 

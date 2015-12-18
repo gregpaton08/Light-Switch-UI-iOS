@@ -11,7 +11,7 @@
 
 @interface LSSwitchesTableViewController : UITableViewController
 
-@property LSSwitchTableViewModel *switchModel;
+@property (strong, nonatomic) LSSwitchTableViewModel *switchModel;
 
 - (IBAction)buttonPressEdit:(id)sender;
 - (IBAction)buttonPressAdd:(id)sender;

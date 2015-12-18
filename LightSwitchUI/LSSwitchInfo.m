@@ -20,4 +20,20 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:[self roomLabel] forKey:@"roomLabel"];
+    [aCoder encodeObject:[self deviceLabel] forKey:@"deviceLabel"];
+    [aCoder encodeBool:[self status] forKey:@"status"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        [self setRoomLabel:[aDecoder decodeObjectForKey:@"roomLabel"]];
+        [self setDeviceLabel:[aDecoder decodeObjectForKey:@"deviceLabeldeviceLabel"]];
+        self.status = [aDecoder decodeBoolForKey:@"status"];
+    }
+    
+    return self;
+}
+
 @end

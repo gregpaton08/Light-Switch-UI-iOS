@@ -10,6 +10,8 @@
 
 @interface LSSwitchesTableViewController : UITableViewController
 
+@property NSMutableArray *switches;
+
 - (IBAction)buttonPressEdit:(id)sender;
 
 @end

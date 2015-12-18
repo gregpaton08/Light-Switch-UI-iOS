@@ -8,6 +8,9 @@
 
 #import "LSSwitchesTableViewController.h"
 #import "LSSwitchTableViewCell.h"
+#import "LSSwitchTableViewModel.h"
+#import "LSSwitchInfo.h"
+#import "AppDelegate.h"
 
 @interface LSSwitchesTableViewController ()
 
@@ -24,7 +27,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self setSwitches:[[NSMutableArray alloc] initWithArray:@[@"TEST1", @"TEST2"]]];
+    AppDelegate *controller = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [self setSwitchModel:[controller switchModel]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self switches] count];
+    return [[[self switchModel] displayedSwitches] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -51,7 +55,8 @@
         cell = [[LSSwitchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LSSwitchTableViewCellIdentifier"];
     }
     
-    [[cell textLabel] setText:[[self switches] objectAtIndex:[indexPath row]]];
+    NSMutableArray *switches = [[self switchModel] displayedSwitches];
+    [[cell textLabel] setText:[switches objectAtIndex:[indexPath row]]];
     [cell setTag:[indexPath row]];
     [[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     
@@ -73,7 +78,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [[self switches] removeObjectAtIndex:[indexPath row]];
+        NSMutableArray *switches = [[self switchModel] displayedSwitches];
+        [switches removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -83,9 +89,10 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     // Swap objects at indexes
-    id temp = [[self switches] objectAtIndex:[fromIndexPath row]];
-    [[self switches] replaceObjectAtIndex:[fromIndexPath row] withObject:[[self switches] objectAtIndex:[toIndexPath row]]];
-    [[self switches] replaceObjectAtIndex:[toIndexPath row] withObject:temp];
+    NSMutableArray *switches = [[self switchModel] displayedSwitches];
+    id temp = [switches objectAtIndex:[fromIndexPath row]];
+    [switches replaceObjectAtIndex:[fromIndexPath row] withObject:[switches objectAtIndex:[toIndexPath row]]];
+    [switches replaceObjectAtIndex:[toIndexPath row] withObject:temp];
 }
 
 // Override to support conditional rearranging of the table view.
@@ -119,7 +126,8 @@
 }
 
 - (IBAction)buttonPressAdd:(id)sender {
-    [[self switches] addObject:@"Testing"];
+    NSMutableArray *switches = [[self switchModel] displayedSwitches];
+    [switches addObject:[NSString stringWithFormat:@"Testing %zu", [switches count]]];
     [[self tableView] reloadData];
 }
 

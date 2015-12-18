@@ -20,6 +20,7 @@
 		37410A061C1CBA990042F2C4 /* LightSwitchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37410A051C1CBA990042F2C4 /* LightSwitchUITests.m */; };
 		37410A111C1CBA990042F2C4 /* LightSwitchUIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37410A101C1CBA990042F2C4 /* LightSwitchUIUITests.m */; };
 		37E45CEB1C23A525005E4D5B /* LSSwitchTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */; };
+		37E45CEF1C23A693005E4D5B /* LSSwitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E45CEE1C23A693005E4D5B /* LSSwitchInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		37410A121C1CBA990042F2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E45CE91C23A525005E4D5B /* LSSwitchTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSwitchTableViewModel.h; sourceTree = "<group>"; };
 		37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchTableViewModel.m; sourceTree = "<group>"; };
+		37E45CED1C23A693005E4D5B /* LSSwitchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSwitchInfo.h; sourceTree = "<group>"; };
+		37E45CEE1C23A693005E4D5B /* LSSwitchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				371BD7741C1FD1EB00A53C7D /* LSSwitchesTableViewController.m */,
 				37E45CE91C23A525005E4D5B /* LSSwitchTableViewModel.h */,
 				37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */,
+				37E45CED1C23A693005E4D5B /* LSSwitchInfo.h */,
+				37E45CEE1C23A693005E4D5B /* LSSwitchInfo.m */,
 			);
 			name = LSSwitches;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			files = (
 				37E45CEB1C23A525005E4D5B /* LSSwitchTableViewModel.m in Sources */,
 				371BD7751C1FD1EB00A53C7D /* LSSwitchesTableViewController.m in Sources */,
+				37E45CEF1C23A693005E4D5B /* LSSwitchInfo.m in Sources */,
 				371BD7721C1FC7F800A53C7D /* LSSettingsTableViewController.m in Sources */,
 				371BD7781C2121E300A53C7D /* LSSwitchTableViewCell.m in Sources */,
 				374109F01C1CBA990042F2C4 /* ViewController.m in Sources */,

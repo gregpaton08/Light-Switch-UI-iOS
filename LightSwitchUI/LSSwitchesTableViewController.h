@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LSSwitchTableViewModel.h"
 
 @interface LSSwitchesTableViewController : UITableViewController
 
-@property NSMutableArray *switches;
+@property LSSwitchTableViewModel *switchModel;
 
 - (IBAction)buttonPressEdit:(id)sender;
 - (IBAction)buttonPressAdd:(id)sender;

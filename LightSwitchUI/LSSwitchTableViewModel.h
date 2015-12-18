@@ -10,6 +10,11 @@
 
 @interface LSSwitchTableViewModel : NSObject
 
+@property NSMutableArray *availableSwitches;
 @property NSMutableArray *displayedSwitches;
+@property NSString *keyForUserDefaults;
+
+- (void)loadAvailableSwitches;
+- (void)saveDisplayedSwitches;
 
 @end

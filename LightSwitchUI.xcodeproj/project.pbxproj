@@ -19,6 +19,7 @@
 		374109FB1C1CBA990042F2C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374109F91C1CBA990042F2C4 /* LaunchScreen.storyboard */; };
 		37410A061C1CBA990042F2C4 /* LightSwitchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37410A051C1CBA990042F2C4 /* LightSwitchUITests.m */; };
 		37410A111C1CBA990042F2C4 /* LightSwitchUIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37410A101C1CBA990042F2C4 /* LightSwitchUIUITests.m */; };
+		37E45CEB1C23A525005E4D5B /* LSSwitchTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		37410A0C1C1CBA990042F2C4 /* LightSwitchUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightSwitchUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37410A101C1CBA990042F2C4 /* LightSwitchUIUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightSwitchUIUITests.m; sourceTree = "<group>"; };
 		37410A121C1CBA990042F2C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E45CE91C23A525005E4D5B /* LSSwitchTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSwitchTableViewModel.h; sourceTree = "<group>"; };
+		37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchTableViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +125,9 @@
 				374109FC1C1CBA990042F2C4 /* Info.plist */,
 				374109F41C1CBA990042F2C4 /* LightSwitchUI.xcdatamodeld */,
 				374109E81C1CBA990042F2C4 /* Supporting Files */,
+				37E45CEC1C23A620005E4D5B /* LSSwitches */,
 				371BD7701C1FC7F800A53C7D /* LSSettingsTableViewController.h */,
 				371BD7711C1FC7F800A53C7D /* LSSettingsTableViewController.m */,
-				371BD7731C1FD1EB00A53C7D /* LSSwitchesTableViewController.h */,
-				371BD7741C1FD1EB00A53C7D /* LSSwitchesTableViewController.m */,
 				371BD7761C2121E300A53C7D /* LSSwitchTableViewCell.h */,
 				371BD7771C2121E300A53C7D /* LSSwitchTableViewCell.m */,
 			);
@@ -156,6 +158,17 @@
 				37410A121C1CBA990042F2C4 /* Info.plist */,
 			);
 			path = LightSwitchUIUITests;
+			sourceTree = "<group>";
+		};
+		37E45CEC1C23A620005E4D5B /* LSSwitches */ = {
+			isa = PBXGroup;
+			children = (
+				371BD7731C1FD1EB00A53C7D /* LSSwitchesTableViewController.h */,
+				371BD7741C1FD1EB00A53C7D /* LSSwitchesTableViewController.m */,
+				37E45CE91C23A525005E4D5B /* LSSwitchTableViewModel.h */,
+				37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */,
+			);
+			name = LSSwitches;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E45CEB1C23A525005E4D5B /* LSSwitchTableViewModel.m in Sources */,
 				371BD7751C1FD1EB00A53C7D /* LSSwitchesTableViewController.m in Sources */,
 				371BD7721C1FC7F800A53C7D /* LSSettingsTableViewController.m in Sources */,
 				371BD7781C2121E300A53C7D /* LSSwitchTableViewCell.m in Sources */,

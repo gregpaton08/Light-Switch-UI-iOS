@@ -11,6 +11,7 @@
 #import "LSSwitchTableViewModel.h"
 #import "LSSwitchInfo.h"
 #import "AppDelegate.h"
+#import "LSCommon.h"
 
 @interface LSSwitchesTableViewController ()
 
@@ -62,6 +63,13 @@
     [[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [[cell cellSwitch] setOn:[switchInfo status]];
     
+    if ([switchInfo status]) {
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    }
+    else {
+        [cell setBackgroundColor:[UIColor backgroundGray]];
+    }
+    
     return cell;
 }
 
@@ -105,6 +113,10 @@
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 /*

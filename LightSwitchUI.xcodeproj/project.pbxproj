@@ -21,6 +21,7 @@
 		37410A111C1CBA990042F2C4 /* LightSwitchUIUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37410A101C1CBA990042F2C4 /* LightSwitchUIUITests.m */; };
 		37E45CEB1C23A525005E4D5B /* LSSwitchTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */; };
 		37E45CEF1C23A693005E4D5B /* LSSwitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E45CEE1C23A693005E4D5B /* LSSwitchInfo.m */; };
+		37E45CF21C23C426005E4D5B /* LSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E45CF11C23C426005E4D5B /* LSCommon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		37E45CEA1C23A525005E4D5B /* LSSwitchTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchTableViewModel.m; sourceTree = "<group>"; };
 		37E45CED1C23A693005E4D5B /* LSSwitchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSwitchInfo.h; sourceTree = "<group>"; };
 		37E45CEE1C23A693005E4D5B /* LSSwitchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSwitchInfo.m; sourceTree = "<group>"; };
+		37E45CF01C23C426005E4D5B /* LSCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCommon.h; sourceTree = "<group>"; };
+		37E45CF11C23C426005E4D5B /* LSCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCommon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				371BD7711C1FC7F800A53C7D /* LSSettingsTableViewController.m */,
 				371BD7761C2121E300A53C7D /* LSSwitchTableViewCell.h */,
 				371BD7771C2121E300A53C7D /* LSSwitchTableViewCell.m */,
+				37E45CF01C23C426005E4D5B /* LSCommon.h */,
+				37E45CF11C23C426005E4D5B /* LSCommon.m */,
 			);
 			path = LightSwitchUI;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E45CEB1C23A525005E4D5B /* LSSwitchTableViewModel.m in Sources */,
+				37E45CF21C23C426005E4D5B /* LSCommon.m in Sources */,
 				371BD7751C1FD1EB00A53C7D /* LSSwitchesTableViewController.m in Sources */,
 				37E45CEF1C23A693005E4D5B /* LSSwitchInfo.m in Sources */,
 				371BD7721C1FC7F800A53C7D /* LSSettingsTableViewController.m in Sources */,

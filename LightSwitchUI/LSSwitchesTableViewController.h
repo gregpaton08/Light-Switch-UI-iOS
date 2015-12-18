@@ -13,5 +13,6 @@
 @property NSMutableArray *switches;
 
 - (IBAction)buttonPressEdit:(id)sender;
+- (IBAction)buttonPressAdd:(id)sender;
 
 @end

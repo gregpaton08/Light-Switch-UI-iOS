@@ -111,7 +111,11 @@
                                 <action selector="buttonPressEdit:" destination="vMU-AG-7DY" id="ztj-vt-7PL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M0q-UN-e8c"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M0q-UN-e8c">
+                            <connections>
+                                <action selector="buttonPressAdd:" destination="vMU-AG-7DY" id="vce-c2-auM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePo-e7-Frj" userLabel="First Responder" sceneMemberID="firstResponder"/>

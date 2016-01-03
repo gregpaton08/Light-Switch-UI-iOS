@@ -15,6 +15,13 @@
     
     [self setCellSwitch:[[UISwitch alloc] init]];
     [self setAccessoryView:[self cellSwitch]];
+    
+    [[self textLabel] setHighlightedTextColor:[UIColor grayColor]];
+    [[self detailTextLabel] setHighlightedTextColor:[UIColor grayColor]];
+}
+
+- (void)updateColor {
+    [self setBackgroundColor:[UIColor greenColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -43,6 +50,12 @@
     if ([self cellSwitch]) {
         [[self cellSwitch] setTag:tag];
     }
+}
+
+
+- (void)cellSwitchChanged:(id)sender {
+    UISwitch* switchControl = sender;
+    NSLog(@"Switch %zd for cell %zd is %@", [switchControl tag], [self tag], [switchControl isOn] ? @"ON" : @"OFF");
 }
 
 @end

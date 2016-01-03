@@ -60,15 +60,25 @@
     LSSwitchInfo *switchInfo = [switches objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[switchInfo roomLabel]];
     [cell setTag:[indexPath row]];
-    [[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
-    [[cell cellSwitch] setOn:[switchInfo status]];
+    [[cell cellSwitch] addTarget:cell action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    //[[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    if ([[cell cellSwitch] isOn] != [switchInfo status]) {
+        [[cell cellSwitch] setOn:[switchInfo status]];
+    }
     
-    if ([switchInfo status]) {
-        [cell setBackgroundColor:[UIColor whiteColor]];
-    }
-    else {
-        [cell setBackgroundColor:[UIColor backgroundGray]];
-    }
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
+            [cell setHighlighted:YES animated:YES];
+        } completion:^(BOOL finished){
+            [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^
+             {
+                 if ([switchInfo status]) {
+                     [cell setBackgroundColor:[UIColor whiteColor]];
+                 }
+                 else {
+                     [cell setBackgroundColor:[UIColor backgroundGray]];
+                 }
+         } completion: NULL];
+    }];
     
     return cell;
 }
@@ -77,10 +87,25 @@
     UISwitch* switchControl = sender;
     NSLog(@"Switch %zd is %@", [switchControl tag], [switchControl isOn] ? @"ON" : @"OFF");
     
-    
     NSMutableArray *switches = [[self switchModel] displayedSwitches];
+    
+//    for (LSSwitchInfo *switchInfo in switches) {
+//        
+//    }
+    
     LSSwitchInfo *switchInfo = [switches objectAtIndex:[switchControl tag]];
     [switchInfo setStatus:[switchControl isOn]];
+    
+//    dispatch_async( dispatch_get_main_queue(), ^{
+//        [NSThread sleepForTimeInterval:1.0];
+//        [[self tableView] reloadData];
+//    });
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [NSThread sleepForTimeInterval:0.1];
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [[self tableView] reloadData];
+        });
+    });
 }
 
 // Override to support conditional editing of the table view.
@@ -96,13 +121,17 @@
         NSMutableArray *switches = [[self switchModel] displayedSwitches];
         [switches removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    
+    // Update the model for switches that have been swapped
+    
     // Swap objects at indexes
     NSMutableArray *switches = [[self switchModel] displayedSwitches];
     id temp = [switches objectAtIndex:[fromIndexPath row]];
@@ -116,6 +145,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 

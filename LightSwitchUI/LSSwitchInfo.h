@@ -10,6 +10,8 @@
 
 @interface LSSwitchInfo : NSObject <NSCoding>
 
+@property NSInteger switchId;       // System ID of the switch
+//@property NSInteger switchIndex;    // Position of the switch as determined by the user
 @property NSString *roomLabel;
 @property NSString *deviceLabel;
 @property BOOL status;

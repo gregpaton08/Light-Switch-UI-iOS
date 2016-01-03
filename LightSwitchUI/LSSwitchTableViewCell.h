@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UISwitch *cellSwitch;
 
+- (void)updateColor;
+- (void)cellSwitchChanged:(id)sender;
+
 @end

@@ -16,5 +16,6 @@
 
 - (void)loadAvailableSwitches;
 - (void)saveDisplayedSwitches;
+- (void)insertObjectAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex;
 
 @end

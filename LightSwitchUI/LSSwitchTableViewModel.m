@@ -43,4 +43,15 @@
     [defaults synchronize];
 }
 
+- (void)insertObjectAtIndex:(NSUInteger)atIndex toIndex:(NSUInteger)toIndex {
+    if (atIndex == toIndex) {
+        return;
+    }
+    
+    // Retrieve and insert object into new location
+    LSSwitchInfo *switchInfo = [[self displayedSwitches] objectAtIndex:atIndex];
+    [[self displayedSwitches] removeObjectAtIndex:atIndex];
+    [[self displayedSwitches] insertObject:switchInfo atIndex:toIndex];
+}
+
 @end

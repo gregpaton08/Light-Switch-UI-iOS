@@ -60,8 +60,7 @@
     LSSwitchInfo *switchInfo = [switches objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[switchInfo roomLabel]];
     [cell setTag:[indexPath row]];
-    [[cell cellSwitch] addTarget:cell action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
-    //[[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    [[cell cellSwitch] addTarget:self action:@selector(cellSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     if ([[cell cellSwitch] isOn] != [switchInfo status]) {
         [[cell cellSwitch] setOn:[switchInfo status]];
     }
@@ -88,18 +87,9 @@
     NSLog(@"Switch %zd is %@", [switchControl tag], [switchControl isOn] ? @"ON" : @"OFF");
     
     NSMutableArray *switches = [[self switchModel] displayedSwitches];
-    
-//    for (LSSwitchInfo *switchInfo in switches) {
-//        
-//    }
-    
     LSSwitchInfo *switchInfo = [switches objectAtIndex:[switchControl tag]];
     [switchInfo setStatus:[switchControl isOn]];
     
-//    dispatch_async( dispatch_get_main_queue(), ^{
-//        [NSThread sleepForTimeInterval:1.0];
-//        [[self tableView] reloadData];
-//    });
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [NSThread sleepForTimeInterval:0.1];
         dispatch_async( dispatch_get_main_queue(), ^{
@@ -133,19 +123,21 @@
     // Update the model for switches that have been swapped
     
     // Swap objects at indexes
-    NSMutableArray *switches = [[self switchModel] displayedSwitches];
-    id temp = [switches objectAtIndex:[fromIndexPath row]];
-    [switches replaceObjectAtIndex:[fromIndexPath row] withObject:[switches objectAtIndex:[toIndexPath row]]];
-    [switches replaceObjectAtIndex:[toIndexPath row] withObject:temp];
+//    NSMutableArray *switches = [[self switchModel] displayedSwitches];
+//    id temp = [switches objectAtIndex:[fromIndexPath row]];
+//    [switches replaceObjectAtIndex:[fromIndexPath row] withObject:[switches objectAtIndex:[toIndexPath row]]];
+//    [switches replaceObjectAtIndex:[toIndexPath row] withObject:temp];
+    
+    // Swap the tags so that the display order matches the model order
+    [[self switchModel] insertObjectAtIndex:[fromIndexPath row] toIndex:[toIndexPath row]];
+    dispatch_async( dispatch_get_main_queue(), ^{
+        [[self tableView] reloadData];
+    });
 }
 
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    
+    return [tableView isEditing];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

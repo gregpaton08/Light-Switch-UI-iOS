@@ -54,4 +54,8 @@
     [[self displayedSwitches] insertObject:switchInfo atIndex:toIndex];
 }
 
+- (void)removeObjectAtIndex:(NSUInteger)index {
+    [[self displayedSwitches] removeObjectAtIndex:index];
+}
+
 @end

@@ -116,9 +116,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NSMutableArray *switches = [[self switchModel] displayedSwitches];
-        [switches removeObjectAtIndex:[indexPath row]];
+        [[self switchModel] removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self updateTableViewScrollEnabled];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -189,6 +190,8 @@
     [switchInfo setRoomLabel:[NSString stringWithFormat:@"Testing %zu", [switches count]]];
     [switches addObject:switchInfo];
     [[self tableView] reloadData];
+    
+    [self updateTableViewScrollEnabled];
 }
 
 - (void)updateTableViewEditingMode {
@@ -205,6 +208,13 @@
             [editButton setTitle:@"Edit"];
         }
     }
+}
+
+- (void)updateTableViewScrollEnabled {
+    // If all the table view cells do not fit on the screen then allow the table view to be scrolled
+    CGFloat tableViewHeight = [[self tableView] contentSize].height;
+    CGFloat cellHeight = [self tableView:[self tableView] heightForRowAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
+    [[self tableView] setScrollEnabled:(cellHeight * [[self tableView] numberOfRowsInSection:0] > tableViewHeight)];
 }
 
 @end

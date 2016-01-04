@@ -44,7 +44,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[self switchModel] displayedSwitches] count];
+    NSInteger numRows = [[[self switchModel] displayedSwitches] count];
+    // If the number of rows becomes zero then hide the edit button and disable editing on the table
+    if (0 == numRows) {
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [self updateTableViewEditingMode];
+        });
+    }
+    
+    return numRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,18 +163,19 @@
 */
 
 - (IBAction)buttonPressEdit:(id)sender {
-    UIBarButtonItem *button = (UIBarButtonItem*)sender;
-    if (0 == [[self tableView] numberOfRowsInSection:0]) {
-        return;
-    }
-    
-    [[self tableView] setEditing:![[self tableView] isEditing] animated:YES];
-    if ([[self tableView] isEditing]) {
-        [button setTitle:@"Done"];
-    }
-    else {
-        [button setTitle:@"Edit"];
-    }
+//    UIBarButtonItem *button = (UIBarButtonItem*)sender;
+//    if (0 == [[self tableView] numberOfRowsInSection:0]) {
+//        return;
+//    }
+//    
+//    [[self tableView] setEditing:![[self tableView] isEditing] animated:YES];
+//    if ([[self tableView] isEditing]) {
+//        [button setTitle:@"Done"];
+//    }
+//    else {
+//        [button setTitle:@"Edit"];
+//    }
+    [self updateTableViewEditingMode];
 }
 
 - (IBAction)buttonPressAdd:(id)sender {
@@ -175,6 +184,22 @@
     [switchInfo setRoomLabel:[NSString stringWithFormat:@"Testing %zu", [switches count]]];
     [switches addObject:switchInfo];
     [[self tableView] reloadData];
+}
+
+- (void)updateTableViewEditingMode {
+    UIBarButtonItem *editButton = [[self navigationItem] leftBarButtonItem];
+    if (0 == [[self tableView] numberOfRowsInSection:0]) {
+        [editButton setTitle:@""];
+    }
+    else {
+        [[self tableView] setEditing:![[self tableView] isEditing] animated:YES];
+        if ([[self tableView] isEditing]) {
+            [editButton setTitle:@"Done"];
+        }
+        else {
+            [editButton setTitle:@"Edit"];
+        }
+    }
 }
 
 @end

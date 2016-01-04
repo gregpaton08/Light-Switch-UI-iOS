@@ -138,11 +138,11 @@
             </objects>
             <point key="canvasLocation" x="2775" y="1092"/>
         </scene>
-        <!--Item-->
+        <!--Switches-->
         <scene sceneID="y9r-aJ-Ulo">
             <objects>
                 <navigationController id="dMI-Io-eQC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fKe-Lh-fX8"/>
+                    <tabBarItem key="tabBarItem" title="Switches" id="fKe-Lh-fX8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0A6-rj-6Oc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -200,11 +200,11 @@
             </objects>
             <point key="canvasLocation" x="2775" y="1806"/>
         </scene>
-        <!--Item-->
+        <!--Alarms-->
         <scene sceneID="806-tP-rxA">
             <objects>
                 <navigationController id="4B0-Te-nsr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HpM-Tq-llF"/>
+                    <tabBarItem key="tabBarItem" title="Alarms" id="HpM-Tq-llF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="13x-2p-tTy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -246,11 +246,11 @@
             </objects>
             <point key="canvasLocation" x="2775" y="2506"/>
         </scene>
-        <!--Item-->
+        <!--Rules-->
         <scene sceneID="DpO-nZ-Jwv">
             <objects>
                 <navigationController id="cwQ-CT-nLI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4Ey-Jf-3YT"/>
+                    <tabBarItem key="tabBarItem" title="Rules" id="4Ey-Jf-3YT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ylh-YQ-f5J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -263,11 +263,11 @@
             </objects>
             <point key="canvasLocation" x="1956" y="2505"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="dDc-9u-1b9">
             <objects>
                 <navigationController id="NfC-L2-w2K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="h4j-wg-dk7"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="h4j-wg-dk7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jsm-H1-lGd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

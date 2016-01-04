@@ -52,10 +52,4 @@
     }
 }
 
-
-- (void)cellSwitchChanged:(id)sender {
-    UISwitch* switchControl = sender;
-    NSLog(@"Switch %zd for cell %zd is %@", [switchControl tag], [self tag], [switchControl isOn] ? @"ON" : @"OFF");
-}
-
 @end

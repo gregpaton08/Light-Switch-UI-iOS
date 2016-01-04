@@ -7,6 +7,7 @@
 //
 
 #import "LSSwitchTableViewCell.h"
+#import "LSCommon.h"
 
 @implementation LSSwitchTableViewCell
 
@@ -50,6 +51,10 @@
     if ([self cellSwitch]) {
         [[self cellSwitch] setTag:tag];
     }
+}
+
+- (void)prepareForReuse {
+    [self setBackgroundColor:[UIColor backgroundGray]];
 }
 
 @end

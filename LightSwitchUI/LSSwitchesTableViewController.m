@@ -214,8 +214,4 @@
     [[self tableView] setScrollEnabled:(cellHeight * [[self tableView] numberOfRowsInSection:0] > tableViewHeight)];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [self updateTableViewEditingMode:false];
-}
-
 @end

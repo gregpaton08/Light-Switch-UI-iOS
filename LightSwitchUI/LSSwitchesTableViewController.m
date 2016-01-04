@@ -32,6 +32,10 @@
     [self setSwitchModel:[controller switchModel]];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self updateTableViewEditingMode:NO];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -73,6 +77,7 @@
         [[cell cellSwitch] setOn:[switchInfo status]];
     }
     
+    // Just a bunch of code to animate the cell color change when it is toggled on/off
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
             [cell setHighlighted:YES animated:YES];
         } completion:^(BOOL finished){
@@ -183,12 +188,16 @@
 }
 
 - (void)updateTableViewEditingMode {
+    [self updateTableViewEditingMode:![[self tableView] isEditing]];
+}
+
+- (void)updateTableViewEditingMode:(BOOL)isEditing {
     UIBarButtonItem *editButton = [[self navigationItem] leftBarButtonItem];
     if (0 == [[self tableView] numberOfRowsInSection:0]) {
         [editButton setTitle:@""];
     }
     else {
-        [[self tableView] setEditing:![[self tableView] isEditing] animated:YES];
+        [[self tableView] setEditing:isEditing animated:YES];
         if ([[self tableView] isEditing]) {
             [editButton setTitle:@"Done"];
         }
@@ -203,6 +212,10 @@
     CGFloat tableViewHeight = [[self tableView] contentSize].height;
     CGFloat cellHeight = [self tableView:[self tableView] heightForRowAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
     [[self tableView] setScrollEnabled:(cellHeight * [[self tableView] numberOfRowsInSection:0] > tableViewHeight)];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [self updateTableViewEditingMode:false];
 }
 
 @end

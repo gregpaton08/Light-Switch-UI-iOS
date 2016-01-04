@@ -152,6 +152,11 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    // Effectively hide the header since a grouped style is used to hide blank cells in the table
+    return 0.01f;
+}
+
 /*
 #pragma mark - Navigation
 

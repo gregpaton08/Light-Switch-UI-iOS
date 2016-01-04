@@ -213,8 +213,8 @@
 
 - (void)updateTableViewScrollEnabled {
     // If all the table view cells do not fit on the screen then allow the table view to be scrolled
-    [[self tableView] layoutIfNeeded];
-    CGFloat tableViewCellsHeight = [[self tableView] contentSize].height;
+    CGFloat cellHeight = [self tableView:[self tableView] heightForRowAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
+    CGFloat tableViewCellsHeight = cellHeight * [self tableView:[self tableView] numberOfRowsInSection:0];
     CGRect navigationBarRect = [[[self navigationController] navigationBar] frame];
     CGFloat navigationBarHeight = navigationBarRect.size.height + navigationBarRect.origin.y;
     CGFloat tabBarHeight = [[[self tabBarController] tabBar] frame].size.height;
